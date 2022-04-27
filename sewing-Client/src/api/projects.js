@@ -15,7 +15,19 @@ export const getAllProjects = (user) => {
 export const getProject = (id) => {
     return axios(`${apiUrl}/projects/${id}`)
 }
-
+// POST -> create function
+export const createProject = (user, newProject) => {
+    console.log('user', user)
+    console.log('this is new Comment', newProject)
+    return axios({
+        url: `${apiUrl}/projects`,
+        method: 'POST',
+        header: {
+            Authorization:`Token token=${user.token}`
+        },
+        data: newProject
+    })
+}
 // export const getProject = (id, user) => {
 //     return axios({
 //         url: `${apiUrl}/projects/${id}`,

@@ -6,6 +6,10 @@ const messages = {
 	signOutSuccess: 'Come back soon!',
 	changePasswordSuccess: 'Password changed successfully!',
 	changePasswordFailure:'Failed to change passwords. Check your old password and try again.',
+	tutorialsIndexSuccess: `Here are the tutorials!`,
+	tutorialsIndexFailure: `We can't seem to find any tutorials!`,
+	tutorialsShowFailure:`We can't find the tutorial you're looking for`,
+	projectsIndexFailure: `We can't seem to find any projects!`
 }
 
 module.exports = messages

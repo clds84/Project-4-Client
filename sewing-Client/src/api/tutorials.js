@@ -11,3 +11,7 @@ export const getAllTutorials = (user) => {
         },
     })
 }
+
+export const getTutorial = (id) => {
+    return axios(`${apiUrl}/tutorials/${id}`)
+}

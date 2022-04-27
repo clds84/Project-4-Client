@@ -58,7 +58,6 @@ const TutorialsIndex = (props) => {
     
 	return (
 		<>
-        <h3 className='logo'>All my favorite picks</h3>
         <div style={cardContainerLayout}>
             {tutorialsCards}
         </div>

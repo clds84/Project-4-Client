@@ -59,7 +59,11 @@ const ProjectsIndex = (props) => {
     
 	return (
 		<>
-        <h3 className='logo'>All my favorite picks</h3>
+        <div>
+            <Link to='/addProject' >
+				 Add Project
+			</Link>
+        </div>
         <div style={cardContainerLayout}>
             {projectsCards}
         </div>
