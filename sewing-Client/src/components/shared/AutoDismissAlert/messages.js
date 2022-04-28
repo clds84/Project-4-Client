@@ -9,7 +9,9 @@ const messages = {
 	tutorialsIndexSuccess: `Here are the tutorials!`,
 	tutorialsIndexFailure: `We can't seem to find any tutorials!`,
 	tutorialsShowFailure:`We can't find the tutorial you're looking for`,
-	projectsIndexFailure: `We can't seem to find any projects!`
+	projectsIndexFailure: `We can't seem to find any projects!`,
+	createProjectFailure: `Project successfully created!`,
+	createProjectSuccess: `Project added!`
 }
 
 module.exports = messages

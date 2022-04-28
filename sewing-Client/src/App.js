@@ -63,9 +63,9 @@ const App = () => {
 
 						path='/projects'
 						element={
-          					 <RequireAuth user={user}>
+          					 
               					<Index3 msgAlert={msgAlert} user={user} />
-           					 </RequireAuth> 
+           					
 						}
 					/>
 					<Route
@@ -77,8 +77,15 @@ const App = () => {
 					  	}					
 					/>	
 					<Route
-					path='/addProject'
-					element={<CreateProject msgAlert={msgAlert} user={user} />}					
+						path='/addProject'
+						  		
+						element={
+						
+						<CreateProject msgAlert={msgAlert} user={user} 
+						
+						/>}
+								
+						  	
 					/>
 					<Route
 						path='/community-Space'

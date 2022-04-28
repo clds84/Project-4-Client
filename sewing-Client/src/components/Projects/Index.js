@@ -12,10 +12,9 @@ const cardContainerLayout = {
 }
 
 const ProjectsIndex = (props) => {
-	// const { msgAlert, user } = props
+    const {user, msgAlert } = props 
 	console.log('props in projects index', props)
     const [projects, setProjects] = useState(null)
-    const {user, msgAlert } = props
     
 
     useEffect(() => {
