@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { getProject } from '../../api/projects'
+import { getProject, updateProject, removeProject } from '../../api/projects'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import {projectsIndexFailure} from '../shared/AutoDismissAlert/messages'
+import {projectsIndexFailure, projectsShowSuccess } from '../shared/AutoDismissAlert/messages'
+import EditProjectModal from './EditProjectModal'
 
 
 // const cardContainerLayout = {
@@ -19,6 +20,7 @@ const ProjectsShow = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in projects show', props)
     const [project, setProject] = useState(null)
+    const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const {user, msgAlert } = props
     const { id } = useParams()
@@ -30,14 +32,19 @@ const ProjectsShow = (props) => {
                 console.log('this is data without digging in ', res)
                 console.log('this is the project data', res.data.project)
                 setProject(res.data.project)
-                
-            })
+             })
+            .then(() =>
+                msgAlert({
+                    heading: 'Awesome',
+                    message: projectsShowSuccess,
+                    variant: 'success',
+            }))
             .catch(() =>
-            msgAlert({
-                heading: 'Oh No!',
-                message: projectsIndexFailure,
-                variant: 'danger',
-        }))
+                msgAlert({
+                    heading: 'Oh No!',
+                    message: projectsIndexFailure,
+                    variant: 'danger',
+            }))
     }, [updated])
     
     if(project){
@@ -56,11 +63,26 @@ const ProjectsShow = (props) => {
                     <p>interfacing: {project.interfacing}</p>
                     <p>notions: {project.notions}</p>
                 </div>
-               <Link to='/projects' >
+                <Button onClick={() => setModalOpen(true)} className="m-2">
+                    Edit Project
+                </Button>
+                <Button className="m-2">
+                    Delete Project
+                </Button>
+                <Link to='/projects' >
 				    Back to my projects
 			   </Link>
-            </>
+               <EditProjectModal
+                    project={project}
+                    show={modalOpen}
+                    user={user}
+                    triggerRefresh={() => setUpdated(prev => !prev)}
+                    updateProject={updateProject}
+                    handleClose = {() => setModalOpen(false)}
+                    msgAlert={msgAlert}
 
+                />
+            </>
         )
     }
     else{

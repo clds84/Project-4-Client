@@ -37,7 +37,8 @@ const CreateProject = (props) => {
 
         console.log('this is project', project)
         createProject(user, project)
-            .then(res => {navigate(`/projects/${res.data.project._id}`)})
+            .then(res => {navigate(`/projects/${res.data.project._id}`)
+        })
             .then(() => 
                  msgAlert ({
                     heading: 'Awesome!',
@@ -53,7 +54,6 @@ const CreateProject = (props) => {
     }
 
     return (
-
         <ProjectForm
             project={project}
             handleChange={handleChange}

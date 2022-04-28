@@ -10,6 +10,7 @@ const messages = {
 	tutorialsIndexFailure: `We can't seem to find any tutorials!`,
 	tutorialsShowFailure:`We can't find the tutorial you're looking for`,
 	projectsIndexFailure: `We can't seem to find any projects!`,
+	projectsShowSuccess: `Here's your project!`,
 	createProjectFailure: `Project successfully created!`,
 	createProjectSuccess: `Project added!`
 }

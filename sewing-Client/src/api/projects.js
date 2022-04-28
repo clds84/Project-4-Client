@@ -13,8 +13,8 @@ export const getAllProjects = (user) => {
     })
 }
 
-    export const getProject = (id) => {
-        return axios(`${apiUrl}/projects/${id}`)
+    export const getProject = (projectId) => {
+        return axios(`${apiUrl}/projects/${projectId}`)
     }
 // POST -> create function
 export const createProject = (user, newProject) => {
@@ -33,11 +33,39 @@ export const createProject = (user, newProject) => {
             fabric: newProject.fabric,
             interfacing: newProject.interfacing,
             notions: newProject.notions,
+        }}
+    })
+}
+//UPDATE
+export const updateProject = (user, updatedProject) => {
+    console.log('user', user)
+    console.log('this is new Project ', updatedProject)
+    return axios({
+        url: `${apiUrl}/projects/${updatedProject._id}`,
+        method: 'PATCH',
+        header: {
+            Authorization:`Token token=${user.token}`
+        },
+        data: { project: {
+            owner: user._id,
+            type: updatedProject.type,
+            pattern: updatedProject.pattern,
+            fabric: updatedProject.fabric,
+            interfacing: updatedProject.interfacing,
+            notions: updatedProject.notions,
+        }}
+    })
+}
 
-
-
-             }}
-            
+//DELETE
+export const removeProject = (user,projectId) => {
+    console.log('user', user)
+    return axios({
+        url: `${apiUrl}/projects/${projectId}`,
+        method: 'DELETE',
+        header: {
+            Authorization:`Token token=${user.token}`
+        },
     })
 }
 // export const getProject = (id, user) => {
