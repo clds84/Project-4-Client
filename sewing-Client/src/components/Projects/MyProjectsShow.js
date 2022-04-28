@@ -19,6 +19,7 @@ import EditProjectModal from './EditProjectModal'
 const ProjectsShow = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in projects show', props)
+    const navigate = useNavigate()
     const [project, setProject] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
@@ -47,6 +48,23 @@ const ProjectsShow = (props) => {
             }))
     }, [updated])
     
+    const RemoveProject = () => {
+        removeProject(user, project.id)
+            .then(() =>
+                msgAlert({
+                    heading: 'Project removed',
+                    message: 'there will always be another',
+                    variant: 'success',
+            }))
+            .then(() => {navigate(`/projects`)})
+            .catch(() =>
+                msgAlert({
+                    heading: 'Dang!',
+                    message: 'no workie',
+                    variant: 'danger',
+            }))
+    }
+
     if(project){
         console.log('this is project type', project.type)
         return (
@@ -66,7 +84,7 @@ const ProjectsShow = (props) => {
                 <Button onClick={() => setModalOpen(true)} className="m-2">
                     Edit Project
                 </Button>
-                <Button className="m-2">
+                <Button onClick ={() => RemoveProject()} className="m-2">
                     Delete Project
                 </Button>
                 <Link to='/projects' >
@@ -80,8 +98,7 @@ const ProjectsShow = (props) => {
                     updateProject={updateProject}
                     handleClose = {() => setModalOpen(false)}
                     msgAlert={msgAlert}
-
-                />
+                 />
             </>
         )
     }

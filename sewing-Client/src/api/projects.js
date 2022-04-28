@@ -60,6 +60,7 @@ export const updateProject = (user, updatedProject) => {
 //DELETE
 export const removeProject = (user,projectId) => {
     console.log('user', user)
+    console.log('this is projectId', projectId)
     return axios({
         url: `${apiUrl}/projects/${projectId}`,
         method: 'DELETE',
