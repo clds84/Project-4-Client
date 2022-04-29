@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import ShowProfile from '../Profile/ShowProfile'
+
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
@@ -27,6 +29,7 @@ const authenticatedOptions = (
 			<Link to='/profile' style={linkStyle}>
 				Profile
 			</Link>
+			
 		</Nav.Item>
 		<Nav.Item className="m-2">
 			<Link to='/community-Space' style={linkStyle}>

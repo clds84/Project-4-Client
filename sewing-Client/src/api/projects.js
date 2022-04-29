@@ -14,6 +14,7 @@ export const getAllProjects = (user) => {
 }
 
     export const getProject = (projectId) => {
+        console.log('this is projectId', projectId)
         return axios(`${apiUrl}/projects/${projectId}`)
     }
 // POST -> create function

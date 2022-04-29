@@ -13,7 +13,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import Index from './components/tutorials/Index'
-import Profile from './components/Profile'
+//import Profile from './components/Profile'
+import CreateProfile from './components/Profile/CreateProfile'
 import ShowProfile from './components/Profile/ShowProfile'
 import Index2 from './components/CommunitySpace/Index'
 import Index3 from './components/Projects/Index'
@@ -60,14 +61,14 @@ const App = () => {
 						path='/profile'
 						element={<ShowProfile msgAlert={msgAlert} user={user} />}
 					/>
+					<Route 
+						path='/addProfile'
+						element={<CreateProfile msgAlert={msgAlert} user={user} />}
+					/>
 					<Route
-
 						path='/projects'
 						element={
-          					 
-              					<Index3 msgAlert={msgAlert} user={user} />
-           					
-						}
+						<Index3 msgAlert={msgAlert} user={user} />}
 					/>
 					<Route
 						path='/projects/:id'

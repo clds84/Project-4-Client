@@ -1,13 +1,19 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-export const getProfile = (profileId) => {
-    return axios(`${apiUrl}/profile/${profileId}`)
+export const getProfile = (user) => {
+      return axios({
+        url: `${apiUrl}/profile`,
+        method: 'GET',
+        headers: {
+            Authorization: `Token token=${user.token}`
+        },
+     })
 }
 // POST -> create function for profile
 export const createProfile = (user, newProfile) => {
     console.log('user', user)
-    console.log('this is new Profile ', newProfile)
+    console.log('this is new Project ', newProfile)
     return axios({
         url: `${apiUrl}/profile`,
         method: 'POST',

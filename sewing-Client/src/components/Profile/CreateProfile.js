@@ -1,66 +1,67 @@
 import React, { useState } from 'react'
-import { createProfile} from '../../api/projects'
-import { Form, Container, Button } from 'react-bootstrap' 
+import { createProfile} from '../../api/profile'
+//import { Form, Container, Button } from 'react-bootstrap' 
 //import { createProfileSuccess, createProfileFailure }from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import ProfileForm from '../shared/ProfileForm'
 
 //this function renders a form and calls function
-const CreateProject = (props) => {
+const CreateProfile = (props) => {
     const { user, msgAlert } = props
     console.log('this is user in create', user)
     const navigate = useNavigate()
-    const [project, setProject] = useState({
-        type: '',
-        fabric:'',
-        interfacing:'',
-        notions:[],
-        pattern:'',
+    const [profile, setProfile] = useState({
+        name: '',
+        about:'',
+        sewingBackground:'',
+        machineType:'',
+        preferredNotions:[],
+        projectbucketlist:''
     })
 
     const handleChange = (e) => {
         e.persist()
 
-        setProject(prevProject => {
+        setProfile(prevProfile => {
             const name = e.target.name
             const value = e.target.value 
             const updatedValue = { [name]: value }
 
-            console.log('this is prevProject', prevProject)
+            console.log('this is prevProfile', prevProfile)
             console.log('this is updatedValue', updatedValue)
 
-            return {...prevProject, ...updatedValue}
+            return {...prevProfile, ...updatedValue}
         }) 
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log('this is project', project)
-        createProject(user, project)
-            .then(res => {navigate(`/projects/${res.data.project._id}`)
+        console.log('this is profile', profile)
+        createProfile(user, profile)
+            .then(res => {navigate(`/profile/${res.data.profile._id}`)
         })
             .then(() => 
                  msgAlert ({
                     heading: 'Awesome!',
-                    message: createProjectSuccess,
+                    message: 'you did it',
                     variant: 'success', 
             }))
             .catch(() => 
                  msgAlert ({
                     heading: 'Dang!',
-                    message: createProjectFailure,
+                    message: 'yo, you real?',
                     variant: 'danger',
             }))
     }
 
     return (
-        <ProjectForm
-            project={project}
+        <ProfileForm
+            profile={profile}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
-            heading="Add Project"
+            heading="Add Profile"
         />
     )
 }
-export default CreateProject
+export default CreateProfile
