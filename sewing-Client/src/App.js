@@ -14,6 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import Index from './components/tutorials/Index'
 import Profile from './components/Profile'
+import IndexProfile from './components/Profile/IndexProfile'
 import Index2 from './components/CommunitySpace/Index'
 import Index3 from './components/Projects/Index'
 import MyProjectsShow from './components/Projects/MyProjectsShow'
@@ -57,7 +58,7 @@ const App = () => {
 					/>
 					<Route
 						path='/profile'
-						element={<Profile msgAlert={msgAlert} user={user} />}
+						element={<IndexProfile msgAlert={msgAlert} user={user} />}
 					/>
 					<Route
 

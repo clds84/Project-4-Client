@@ -49,7 +49,8 @@ const ProjectsShow = (props) => {
     }, [updated])
     
     const RemoveProject = () => {
-        removeProject(user, project.id)
+        removeProject(user, id)
+        
             .then(() =>
                 msgAlert({
                     heading: 'Project removed',
@@ -64,7 +65,7 @@ const ProjectsShow = (props) => {
                     variant: 'danger',
             }))
     }
-
+    console.log('THIS IS PROJECT', project)
     if(project){
         console.log('this is project type', project.type)
         return (
