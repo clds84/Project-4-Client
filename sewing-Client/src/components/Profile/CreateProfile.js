@@ -39,7 +39,7 @@ const CreateProfile = (props) => {
 
         console.log('this is profile', profile)
         createProfile(user, profile)
-            .then(res => {navigate(`/profile/${res.data.profile._id}`)
+            .then(res => {navigate(`/profile`)
         })
             .then(() => 
                  msgAlert ({

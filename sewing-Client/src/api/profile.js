@@ -2,6 +2,7 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 export const getProfile = (user) => {
+    console.log('this is user in index axios', user)
       return axios({
         url: `${apiUrl}/profile`,
         method: 'GET',
@@ -17,7 +18,7 @@ export const createProfile = (user, newProfile) => {
     return axios({
         url: `${apiUrl}/profile`,
         method: 'POST',
-        header: {
+        headers: {
             Authorization:`Token token=${user.token}`
         },
         data: { profile:{ 
@@ -31,6 +32,32 @@ export const createProfile = (user, newProfile) => {
         }}
     })
 }
+
+//DELETE
+export const removeProfile = (user) => {
+    console.log('user', user)
+    
+    return axios({
+        url: `${apiUrl}/profile`,
+        method: 'DELETE',
+        headers: {
+            Authorization:`Token token=${user.token}`
+        },
+    })
+}
+
+//DELETE
+// export const removeProject = (user,projectId) => {
+//     console.log('user', user)
+//     console.log('this is projectId', projectId)
+//     return axios({
+//         url: `${apiUrl}/projects/${projectId}`,
+//         method: 'DELETE',
+//         header: {
+//             Authorization:`Token token=${user.token}`
+//         },
+//     })
+// }
 
 
     

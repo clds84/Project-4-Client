@@ -35,7 +35,7 @@ const ProjectsIndex = (props) => {
     if (!projects) {
         return <p>loading...</p>
     } else if (projects.length === 0) {
-        return <p>No projects as of yet!</p>
+        return <p>No projects as of yet! Click <Link to='/addProject' > here</Link> here to add one!</p>
     }
 
     let projectsCards 
@@ -58,15 +58,16 @@ const ProjectsIndex = (props) => {
     
 	return (
 		<>
-        <div>
-            <Link to='/addProject' >
-				 Add Project
-			</Link>
-        </div>
-        <div style={cardContainerLayout}>
-            {projectsCards}
-        </div>
-    </>
+            <div style={cardContainerLayout}>
+                {projectsCards}
+            </div>
+            <div>
+                <Link to='/addProject' >
+                    Add Project
+                </Link>
+            </div>
+                
+        </>
     )
 }
 
