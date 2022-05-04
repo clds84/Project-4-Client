@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Card, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { getProfile, removeProfile } from '../../api/profile'
+import { getProfile, removeProfile, updateProfile } from '../../api/profile'
 import { useParams, useNavigate } from 'react-router-dom'
+import EditProfileModal from './EditProfileModal'
 
 const ShowProfile = (props) => {
     console.log('these are the props in profile', props)
     const [profile, setProfile] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
+    const [updated, setUpdated] = useState(false)
     const navigate = useNavigate()
     const { user, msgAlert } = props
     
@@ -25,7 +27,7 @@ const ShowProfile = (props) => {
                 message: 'shit',
                 variant: 'danger',
         }))
-    }, [user])
+    }, [user, updated])
     
     const deleteProfile = () => {
         console.log('this is user', user)
@@ -37,7 +39,7 @@ const ShowProfile = (props) => {
                     message: 'You are still a person',
                     variant: 'success',
             }))
-            .then(() => {navigate(`/profile`)})
+            .then(() => {navigate(`/community-space`)})
             .catch(() =>
                 msgAlert({
                     heading: 'Dang!',
@@ -46,72 +48,52 @@ const ShowProfile = (props) => {
             }))
     }
 
-       //loading screen while api call happens
        if (!profile) {
     
         return <h2>Looks like you don't have a profile yet! Click <Link to='/addProfile'>here</Link> to get started</h2>
     }
 
     if (profile) {
-            // if (profiles.user_id === user.id)
             return (
                 <>
                     <Card style={{width: '30%' }} className="m-2 shadow p-3 mb-5 bg-body rounded">
                         <Card.Header style={{
                             textAlign: 'center'
-                        }}>Name: {profile.name} </Card.Header>
+                        }}  
+                            >Name: {profile.name} 
+                        </Card.Header>
                         <Card.Body style={{
                             textAlign: 'center'
                         }}>
                             <Card.Text>
-                                {/* <Link className='viewProfile' to={`/profiles/${profile.id}`}>View {profile.name}</Link> */}
+                               About: {profile.about}
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer style={{
                             textAlign: 'center'
                         }}>
-                            {/* link to create an invite */}
-                            {/* <span>Schedule Playdate with: </span> */}
-                                {/* <Link className="invite" to={`/addInvite/`}>{profile.name}</Link> */}
                         </Card.Footer>
                     </Card>
                     <Button onClick={() => setModalOpen(true)} className="m-2">
                          Edit Project
                     </Button>
                     <Button onClick ={() => deleteProfile()} className="m-2">
-                    Delete Project
-                </Button>
+                         Delete Project
+                    </Button>
+                    <EditProfileModal
+                        profile={profile}
+                        show={modalOpen}
+                        user={user}
+                        triggerRefresh={() => setUpdated(prev => !prev)}
+                        updateProfile={updateProfile}
+                        handleClose = {() => setModalOpen(false)}
+                        msgAlert={msgAlert}
+                    />
                 </>
-
             )
        // })
+    }
 
-        }
-    // if(!profile) {
-    //     return (
-    //         <>
-    //             <h2>Looks like you don't have a profile yet! Click <Link to='/addProfile'>here</Link> to get started</h2>
-    //         </>
-    //     )
-    // }
-    // else if (profile) {
-
-    //     return (
-    //         <>
-    //         <h2>hello</h2>
-    //         <Container className="justify-content-center">
-    //             <Card  style={{ width: '30%' }} className="m-2" >
-    //                 <Card.Header> {profile[0].name} </Card.Header>
-    //                 <Card.Body>
-    //                     <Card.Text>
-    //                         {/* <Link to={`/projects/${profile._id}`}>View </Link> */}
-    //                     </Card.Text>
-    //                 </Card.Body>
-    //             </Card>
-    //         </Container>
-    //         </>
-    //     )
-    // }
 }
-//key={profile.id} this is on 39, <Card ()>
+
 export default ShowProfile

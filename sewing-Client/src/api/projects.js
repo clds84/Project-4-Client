@@ -13,10 +13,10 @@ export const getAllProjects = (user) => {
     })
 }
 
-    export const getProject = (projectId) => {
-        console.log('this is projectId', projectId)
-        return axios(`${apiUrl}/projects/${projectId}`)
-    }
+export const getProject = (projectId) => {
+    console.log('this is projectId', projectId)
+    return axios(`${apiUrl}/projects/${projectId}`)
+}
 // POST -> create function
 export const createProject = (user, newProject) => {
     console.log('user', user)
@@ -70,12 +70,3 @@ export const removeProject = (user,projectId) => {
         },
     })
 }
-// export const getProject = (id, user) => {
-//     return axios({
-//         url: `${apiUrl}/projects/${id}`,
-//         method: 'GET',
-//         headers: {
-//             Authorization: `Token token=${user.token}`
-//         },
-//     })
-// }

@@ -14,7 +14,7 @@ export const getProfile = (user) => {
 // POST -> create function for profile
 export const createProfile = (user, newProfile) => {
     console.log('user', user)
-    console.log('this is new Project ', newProfile)
+    console.log('this is new Profile ', newProfile)
     return axios({
         url: `${apiUrl}/profile`,
         method: 'POST',
@@ -32,7 +32,26 @@ export const createProfile = (user, newProfile) => {
         }}
     })
 }
-
+//UPDATE
+export const updateProfile = (user, updatedProfile) => {
+    console.log('user', user)
+    console.log('this is new Profile ', updatedProfile)
+    return axios({
+        url: `${apiUrl}/profile`,
+        method: 'PATCH',
+        headers: {
+            Authorization:`Token token=${user.token}`
+        },
+        data: { profile: {
+            owner: user._id,
+            type: updatedProfile.type,
+            pattern: updatedProfile.pattern,
+            fabric: updatedProfile.fabric,
+            interfacing: updatedProfile.interfacing,
+            notions: updatedProfile.notions,
+        }}
+    })
+}
 //DELETE
 export const removeProfile = (user) => {
     console.log('user', user)
@@ -46,18 +65,7 @@ export const removeProfile = (user) => {
     })
 }
 
-//DELETE
-// export const removeProject = (user,projectId) => {
-//     console.log('user', user)
-//     console.log('this is projectId', projectId)
-//     return axios({
-//         url: `${apiUrl}/projects/${projectId}`,
-//         method: 'DELETE',
-//         header: {
-//             Authorization:`Token token=${user.token}`
-//         },
-//     })
-// }
+
 
 
     
