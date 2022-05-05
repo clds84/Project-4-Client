@@ -3,9 +3,17 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import ShowProfile from '../Profile/ShowProfile'
+import styled from 'styled-components'
 
+
+const NavBarStyling = styled.div`
+	background:white;
+	`
+const navBarStyle = {
+	background:'yellow'
+}
 const linkStyle = {
-    color: 'white',
+    color: 'black',
     textDecoration: 'none'
 }
 const authenticatedOptions = (
@@ -67,7 +75,8 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+
+	<Navbar bg='light' variant='light' expand='md'>
 		<Navbar.Brand className="m-2">
             <Link to='/' style={linkStyle}>
                 react-auth-template
@@ -77,13 +86,14 @@ const Header = ({ user }) => (
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='m-2' style={linkStyle}>Welcome, {user.email}</span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
+	
 )
 
 export default Header

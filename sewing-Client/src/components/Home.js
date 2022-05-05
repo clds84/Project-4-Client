@@ -1,18 +1,25 @@
 import React from 'react'
-import '../../src/stylingTest.scss'
+// import '../../src/stylingTest.scss'
+import styled from 'styled-components'
+
+const Div = styled.div`
+		background: green;
+	`
+
 const Home = (props) => {
-	<div className="Box">
-    <p className="Box_content"> Styling React Components </p>
-  </div>
+	
+
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
 	return (
 		<>
 
-		<div className="Box">
+		{/* <div className="Box"> */}
+		<Div>
     		 <p className="Box_content"> Styling React Components </p>
- 		</div>
+		</Div>
+ 		{/* </div> */}
 			<h2>Home Pages</h2>
 		</>
 	)

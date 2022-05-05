@@ -16,6 +16,8 @@ import EditProjectModal from './EditProjectModal'
 //     color: 'black',
 //     textDecoration: 'underline'
 // }
+
+
 const ProjectsShow = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in projects show', props)

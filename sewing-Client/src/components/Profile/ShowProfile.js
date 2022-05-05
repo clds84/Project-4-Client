@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { getProfile, removeProfile, updateProfile } from '../../api/profile'
 import { useParams, useNavigate } from 'react-router-dom'
 import EditProfileModal from './EditProfileModal'
+import { Sample } from '../styling/sample.styled'
+import buttonImage from './buttons.jpg'
 
 const ShowProfile = (props) => {
     console.log('these are the props in profile', props)
@@ -13,6 +15,11 @@ const ShowProfile = (props) => {
     const navigate = useNavigate()
     const { user, msgAlert } = props
     
+    const routeChange = () =>{ 
+        let path = `/projects`; 
+        navigate(path);
+      }
+      
     console.log('this is user', user)
     useEffect(() => {
         getProfile(user)
@@ -54,32 +61,81 @@ const ShowProfile = (props) => {
     }
 
     if (profile) {
-            return (
+            return (    
                 <>
-                    <Card style={{width: '30%' }} className="m-2 shadow p-3 mb-5 bg-body rounded">
+                <div style={{padding: '100px', backgroundImage: `url(${buttonImage})`, backgroundSize: 'cover'}}>
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    <Card border="dark" style={{width: '40rem', borderRadius: '20px'}} className="m-2 shadow p-3 mb-5 bg-body rounded">
+                 <Sample>
                         <Card.Header style={{
-                            textAlign: 'center'
-                        }}  
-                            >Name: {profile.name} 
+                            textAlign: 'center',
+                            fontSize: '28px',
+                            background: 'white',
+                            opacity: '.1'
+                        }}          
+                        >
+                            <strong>Profile</strong>
                         </Card.Header>
+                      
                         <Card.Body style={{
                             textAlign: 'center'
                         }}>
+                            {/* <Card.Title>Card Title</Card.Title> */}
                             <Card.Text>
-                               About: {profile.about}
+                                 <strong>Name: </strong> <br /><br />  {profile.name}
                             </Card.Text>
+                                <hr></hr>
+                            <Card.Text>
+                                <strong>About: </strong> <br /><br /> {profile.about}
+                            </Card.Text>
+                                <hr></hr>
+                            <Card.Text>
+                                 <strong>Sewing Background:</strong> <br /><br />  {profile.sewingBackground}
+                            </Card.Text>
+                                 <hr></hr>
+                            <Card.Text>
+                                <strong>Machine Type:</strong> <br /><br />  {profile.machineType}
+                            </Card.Text>
+                                <hr></hr>
+                            <Card.Text>
+                                <strong>Project Bucketlist:</strong> <br /><br />   {profile.projectBucketlist}
+                            </Card.Text>
+                                <hr></hr>
+                            <Card.Text>
+                               <strong>About:</strong> <br /><br />   {profile.about}
+                            </Card.Text>
+
                         </Card.Body>
                         <Card.Footer style={{
-                            textAlign: 'center'
+                            textAlign: 'center',
+                            background: 'white'
                         }}>
-                        </Card.Footer>
-                    </Card>
                     <Button onClick={() => setModalOpen(true)} className="m-2">
-                         Edit Project
+                         Edit Profile
                     </Button>
                     <Button onClick ={() => deleteProfile()} className="m-2">
-                         Delete Project
+                         Delete Profile
                     </Button>
+                    <Button onClick={() => navigate('/projects')} className="m-2">  
+                            My Projects
+                    </Button>
+                    <Button onClick={() => navigate('/projects')} className="m-2">  
+                            My Comments
+                    </Button>
+                    
+                            
+                            
+                        </Card.Footer>
+                        </Sample>
+                    </Card>
+                    </div>
+                    <div style={{textAlign:'center'}}>
+                    
+                
+                    </div>
+                    </div>
+                   
+                    
                     <EditProfileModal
                         profile={profile}
                         show={modalOpen}

@@ -43,6 +43,13 @@ const ProfileForm = (props) => {
                     name='projectBucketlist'
                     onChange={handleChange}
                 />
+                <Form.Label>Preferred Notions</Form.Label>
+                <Form.Control
+                    placeholder="What are your preferred notions?"
+                    value={profile.preferredNotions}
+                    name='preferredNotions'
+                    onChange={handleChange}
+                />
                 <Button type='submit'>Submit</Button>
             </Form>
         </Container>
