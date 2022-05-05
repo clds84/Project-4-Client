@@ -81,18 +81,18 @@ const ProjectsShow = (props) => {
                     </Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <img src={project.image} alt="shit"></img>
-                            <h2>{project.type}</h2>
-                            <h2>{project.pattern}</h2>
-                            
-                            <h3>Project Specs:</h3>
-                            <p>fabric: {project.fabric}</p>
-                            <p>interfacing: {project.interfacing}</p>
-                            <p>notions: {project.notions}</p>
+                            {/* <img src={project.image} alt="shit"></img> */}
+                            <h3 style={{float: 'left'}}>Project Specs:</h3><br /><br /><br />
+                            <div style={{display:'flex', flexDirection:'column', alignItems: 'flex-start'}}>
+                                
+                            <p><strong>fabric:</strong> {project.fabric}</p>
+                            <p><strong>interfacing:</strong> {project.interfacing}</p>
+                            <p><strong>notions:</strong> {project.notions}</p>
+                            </div>
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                
+                <div style={{display:'flex'}}>
                 <Button onClick={() => setModalOpen(true)} className="m-2">
                     Edit Project
                 </Button>
@@ -105,6 +105,7 @@ const ProjectsShow = (props) => {
                 <Button onClick= { () => navigate(`/addProject`)}  className="m-2"> 
                     Add Project
                 </Button>
+                </div>
                </div>
                <EditProjectModal
                     project={project}
