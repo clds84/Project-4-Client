@@ -3,7 +3,7 @@ import { getAllTutorials } from '../../api/tutorials'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {tutorialsIndexSuccess, tutorialsIndexFailure} from '../shared/AutoDismissAlert/messages'
-
+import tutorialPhoto from '../../images/tutorialPhoto.jpg'
 
 const cardContainerLayout = {
     display: 'flex',
@@ -58,8 +58,10 @@ const TutorialsIndex = (props) => {
     
 	return (
 		<>
-        <div style={cardContainerLayout}>
+        <div style={{padding: '100px', backgroundImage: `url(${tutorialPhoto})`, backgroundSize:'cover', width: '100%', height: '1000px'}}> 
+        <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
             {tutorialsCards}
+        </div>
         </div>
     </>
     )

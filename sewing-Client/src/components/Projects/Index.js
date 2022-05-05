@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { getAllProjects } from '../../api/projects'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {projectsIndexFailure} from '../shared/AutoDismissAlert/messages'
+import fabric from '../../images/canvasSmaller.jpg'
+import { Image } from "react-bootstrap"
+import shirt from '../../images/shirt.jpg'
 
 
 const cardContainerLayout = {
@@ -14,6 +18,7 @@ const cardContainerLayout = {
 const ProjectsIndex = (props) => {
     const {user, msgAlert } = props 
 	console.log('props in projects index', props)
+    const navigate = useNavigate()
     const [projects, setProjects] = useState(null)
     
 
@@ -44,28 +49,38 @@ const ProjectsIndex = (props) => {
         
         projectsCards = projects.map(project => (
            
-    
-            <Card key={project.id} style={{ width: '30%' }} className="m-2" >
-                <Card.Header>{project.type} - {project.pattern} </Card.Header>
+           
+            <Card key={project.id} style={{width: '30rem', textAlign:'center'}} className="m-2 shadow p-3 mb-5 bg-body rounded" >
+                <Card.Header style={{background: 'white', fontSize: '28px'}}>
+                    <strong>{project.type}</strong> <br /> <hr></hr><strong>{project.pattern}</strong> 
+                </Card.Header>
                 <Card.Body>
+                    <Card.Img src={project.image} alt="Card image" />
                     <Card.Text>
-                        <Link to={`/projects/${project._id}`}>View </Link>
+                        <br />
+                        <Button onClick={() => navigate(`/projects/${project._id}`)} className="m-2">  
+                                View
+                        </Button>
                     </Card.Text>
                 </Card.Body>
             </Card>
+           
         ))
     }
     
 	return (
 		<>
-            <div style={cardContainerLayout}>
-                {projectsCards}
-            </div>
-            <div>
-                <Link to='/addProject' >
-                    Add Project
-                </Link>
-            </div>
+            <div style={{padding: '100px', backgroundImage: `url(${fabric})`, backgroundSize:'cover', width: '100%', height: '1000px'}}> 
+                 <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+                     {projectsCards}
+                </div>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <Button  onClick={() => navigate('/addproject')} className="m-2">  
+                        Add Project
+                    </Button>
+                 </div>
+            </div> 
+            
                 
         </>
     )

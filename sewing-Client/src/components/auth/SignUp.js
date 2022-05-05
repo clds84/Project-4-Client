@@ -7,6 +7,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import needle from '../../images/needle3.jpg'
 
 const SignUp = (props) => {
 	// constructor(props) {
@@ -56,7 +57,7 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
+        <div className='row' style={{backgroundImage: `url(${needle})`, backgroundSize: 'cover', height:'1000px'}}>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>

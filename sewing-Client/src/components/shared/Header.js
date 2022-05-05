@@ -4,14 +4,10 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 import ShowProfile from '../Profile/ShowProfile'
 import styled from 'styled-components'
+import { NavbarStyling } from '../styling//navbar.styled'
 
 
-const NavBarStyling = styled.div`
-	background:white;
-	`
-const navBarStyle = {
-	background:'yellow'
-}
+
 const linkStyle = {
     color: 'black',
     textDecoration: 'none'
@@ -75,13 +71,8 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-
-	<Navbar bg='light' variant='light' expand='md'>
-		<Navbar.Brand className="m-2">
-            <Link to='/' style={linkStyle}>
-                react-auth-template
-            </Link>
-        </Navbar.Brand>
+<NavbarStyling>
+	<Navbar bg='light' variant='light' expand='md' style={{}}>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
@@ -93,7 +84,7 @@ const Header = ({ user }) => (
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
-	
+	</NavbarStyling>
 )
 
 export default Header

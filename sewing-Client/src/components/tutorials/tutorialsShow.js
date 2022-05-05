@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {tutorialsShowFailure} from '../shared/AutoDismissAlert/messages'
-
+import tutorialPhoto from '../../images/tutorialPhoto.jpg'
 
 // const cardContainerLayout = {
 //     display: 'flex',
@@ -44,14 +44,16 @@ const TutorialsShow = (props) => {
         console.log('this is project type', tutorial.type)
         return (
             <>
-                <div>
-                    <h2>Welcome! Let's learn how to make a {tutorial.type}</h2>
-                    <h2>The pattern is {tutorial.pattern}</h2>
-                    <div>(Will have images here later)</div>
+                  <div style={{padding: '100px', backgroundImage: `url(${tutorialPhoto})`, backgroundSize:'cover', width: '100%', height: '1000px'}}> 
+                        <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+                            <h2>Welcome! Let's learn how to make a {tutorial.type}</h2>
+                                <h2>The pattern is {tutorial.pattern}</h2>
+                     <div>(Will have images here later)</div>
                     
                     <p> Feel free to experiment, but I went with {tutorial.fabric} 
                     fabric and a {tutorial.interfacing} interfacing. You can use a 
                     few or a lot of notions, and I used {tutorial.notions} just to name a few</p>
+                    </div>
                 </div>
                 <Link to='/tutorials/:id/' >
 				    Next Page

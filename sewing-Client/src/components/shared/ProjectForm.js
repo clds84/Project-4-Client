@@ -43,6 +43,13 @@ const ProjectForm = (props) => {
                     name='notions'
                     onChange={handleChange}
                 />
+                <Form.Label>Image</Form.Label>
+                <Form.Control
+                    placeholder="please add image"
+                    value={project.image}
+                    name='image'
+                    onChange={handleChange}
+                />
                 <Button type='submit'>Submit</Button>
             </Form>
         </Container>

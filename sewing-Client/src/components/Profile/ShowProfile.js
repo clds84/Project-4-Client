@@ -5,7 +5,7 @@ import { getProfile, removeProfile, updateProfile } from '../../api/profile'
 import { useParams, useNavigate } from 'react-router-dom'
 import EditProfileModal from './EditProfileModal'
 import { Sample } from '../styling/sample.styled'
-import buttonImage from './buttons.jpg'
+import buttons from '../../images/buttons.jpg'
 
 const ShowProfile = (props) => {
     console.log('these are the props in profile', props)
@@ -15,11 +15,6 @@ const ShowProfile = (props) => {
     const navigate = useNavigate()
     const { user, msgAlert } = props
     
-    const routeChange = () =>{ 
-        let path = `/projects`; 
-        navigate(path);
-      }
-      
     console.log('this is user', user)
     useEffect(() => {
         getProfile(user)
@@ -63,15 +58,14 @@ const ShowProfile = (props) => {
     if (profile) {
             return (    
                 <>
-                <div style={{padding: '100px', backgroundImage: `url(${buttonImage})`, backgroundSize: 'cover'}}>
+                <div style={{padding: '100px', backgroundImage: `url(${buttons})`, backgroundSize: 'cover'}}>
                 <div style={{display:'flex', justifyContent:'center'}}>
                     <Card border="dark" style={{width: '40rem', borderRadius: '20px'}} className="m-2 shadow p-3 mb-5 bg-body rounded">
                  <Sample>
                         <Card.Header style={{
                             textAlign: 'center',
                             fontSize: '28px',
-                            background: 'white',
-                            opacity: '.1'
+                            background: 'white'
                         }}          
                         >
                             <strong>Profile</strong>

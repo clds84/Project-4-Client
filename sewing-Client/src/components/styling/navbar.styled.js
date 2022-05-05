@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-export const navbar = styled.div `
-   background: white;
+export const NavbarStyling = styled.div `
+   background: pink;
    color: black
 `
 

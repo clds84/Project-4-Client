@@ -5,6 +5,7 @@ import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {projectsIndexFailure, projectsShowSuccess } from '../shared/AutoDismissAlert/messages'
 import EditProjectModal from './EditProjectModal'
+import fabric from '../../images/canvasSmaller.jpg'
 
 
 // const cardContainerLayout = {
@@ -72,27 +73,39 @@ const ProjectsShow = (props) => {
         console.log('this is project type', project.type)
         return (
             <>
-               <Link to='/addProject' >
-				    Add Project
-			   </Link>
-                <div>
-                    <h2>{project.type}</h2>
-                    <h2>{project.pattern}</h2>
-                    <div>(Will have images here later)</div>
-                    <h3>Project Specs:</h3>
-                    <p>fabric: {project.fabric}</p>
-                    <p>interfacing: {project.interfacing}</p>
-                    <p>notions: {project.notions}</p>
-                </div>
+             <div style={{padding:'100px',display:'flex',flexDirection:'column', alignItems:'center', backgroundImage: `url(${fabric})`, backgroundSize:'cover', width: '100%', height: '1000px'}}>
+              
+                <Card style={{width: '30rem', textAlign:'center'}} className="m-2 shadow p-3 mb-5 bg-body rounded">
+                    <Card.Header style={{background:'white', fontSize:'28px'}}>
+                        <strong>{project.type}</strong> <br /> <hr></hr><strong>{project.pattern}</strong> 
+                    </Card.Header>
+                    <Card.Body>
+                        <Card.Text>
+                            <img src={project.image} alt="shit"></img>
+                            <h2>{project.type}</h2>
+                            <h2>{project.pattern}</h2>
+                            
+                            <h3>Project Specs:</h3>
+                            <p>fabric: {project.fabric}</p>
+                            <p>interfacing: {project.interfacing}</p>
+                            <p>notions: {project.notions}</p>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+                
                 <Button onClick={() => setModalOpen(true)} className="m-2">
                     Edit Project
                 </Button>
                 <Button onClick ={() => RemoveProject()} className="m-2">
                     Delete Project
                 </Button>
-                <Link to='/projects' >
-				    Back to my projects
-			   </Link>
+                <Button onClick= { () => navigate(`/projects`)}  className="m-2"> 
+                    Back to projects
+                </Button>
+                <Button onClick= { () => navigate(`/addProject`)}  className="m-2"> 
+                    Add Project
+                </Button>
+               </div>
                <EditProjectModal
                     project={project}
                     show={modalOpen}

@@ -15,6 +15,7 @@ const CreateProject = (props) => {
         interfacing:'',
         notions:[],
         pattern:'',
+        image:'',
     })
 
     const handleChange = (e) => {

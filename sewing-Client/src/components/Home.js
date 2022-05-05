@@ -1,10 +1,10 @@
 import React from 'react'
 // import '../../src/stylingTest.scss'
-import styled from 'styled-components'
 
-const Div = styled.div`
-		background: green;
-	`
+import needleImage from '../images/needle3.jpg'
+import buttonImage from '../components/Profile/buttons.jpg'
+
+
 
 const Home = (props) => {
 	
@@ -14,13 +14,10 @@ const Home = (props) => {
 
 	return (
 		<>
-
-		{/* <div className="Box"> */}
-		<Div>
-    		 <p className="Box_content"> Styling React Components </p>
-		</Div>
- 		{/* </div> */}
-			<h2>Home Pages</h2>
+			<div style={{ backgroundImage: `url(${needleImage})`, backgroundSize: 'cover', height:'1000px'}}>
+				
+			</div>
+			
 		</>
 	)
 }
