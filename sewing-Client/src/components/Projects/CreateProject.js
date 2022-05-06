@@ -4,6 +4,7 @@ import { Form, Container, Button } from 'react-bootstrap'
 import { createProjectSuccess, createProjectFailure }from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import ProjectForm from '../shared/ProjectForm'
+import modalpic from '../../images/gutermann.jpg'
 //this function renders a form and calls function
 const CreateProject = (props) => {
     const { user, msgAlert } = props
@@ -55,12 +56,15 @@ const CreateProject = (props) => {
     }
 
     return (
+        <div style={{background: `url(${modalpic})`, backgroundSize:'cover',height:'1000px'}}>
+
         <ProjectForm
             project={project}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             heading="Add Project"
-        />
+            />
+        </div>
     )
 }
 export default CreateProject

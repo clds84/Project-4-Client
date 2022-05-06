@@ -6,6 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import EditProfileModal from './EditProfileModal'
 import { Sample } from '../styling/sample.styled'
 import buttons from '../../images/buttons.jpg'
+import needle from '../../images/needle3.jpg'
 
 const ShowProfile = (props) => {
     console.log('these are the props in profile', props)
@@ -51,8 +52,12 @@ const ShowProfile = (props) => {
     }
 
        if (!profile) {
-    
-        return <h2>Looks like you don't have a profile yet! Click <Link to='/addProfile'>here</Link> to get started</h2>
+
+        return (
+            <div style={{display:'flex', justifyContent:'center', alignItems:'center', backgroundImage: `url(${needle})`, backgroundSize:'cover', width:'100%', height:'800px' }}>
+                <h2 style={{fontSize:'45px', marginTop:'-60px'}}>Looks like you don't have a profile yet! Click <Link to='/addProfile'>here</Link> to get started</h2>
+            </div>
+        )
     }
 
     if (profile) {

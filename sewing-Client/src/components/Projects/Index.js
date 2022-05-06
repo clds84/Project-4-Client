@@ -38,9 +38,17 @@ const ProjectsIndex = (props) => {
     }, [])
 
     if (!projects) {
-        return <p>loading...</p>
+        return (
+            <div style={{display:'flex', justifyContent:'center', alignItems:'center', backgroundImage: `url(${fabric})`, width:'100%', height:'800px' }}>
+                <p style={{fontSize:'45px'}}>loading...</p>
+            </div>
+        )
     } else if (projects.length === 0) {
-        return <p>No projects as of yet! Click <Link to='/addProject' > here</Link> here to add one!</p>
+        return (
+            <div style={{display:'flex', justifyContent:'center', alignItems:'center', backgroundImage: `url(${fabric})`, width:'100%', height:'800px' }}>
+                <p style={{fontSize:'45px'}}>No projects as of yet! Click <Link to='/addProject' > here</Link> here to add one!</p>
+            </div>
+        )
     }
 
     let projectsCards 

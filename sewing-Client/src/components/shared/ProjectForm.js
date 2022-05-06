@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
+import modalpic from '../../images/needle2.jpg'
 
 const ProjectForm = (props) => {
     const { project, handleChange, handleSubmit, heading } = props

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import ProjectForm from '../shared/ProjectForm'
 import { updateProject} from '../../api/projects'
+import modalpic from '../../images/needle2.jpg'
 
 const EditProjectModal = (props) => {
     const { user, msgAlert, show, handleClose, updateProject, triggerRefresh } = props 
@@ -52,7 +53,7 @@ const EditProjectModal = (props) => {
                         handleChange={handleChange}
                         handleSubmit={handleSubmit}
                         heading="Add Project"
-                    />
+                        />
                 </Modal.Body>
             </Modal>
         </>
