@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import ProfileForm from '../shared/ProfileForm'
-import { updateProfile} from '../../api/profile'
+//import { updateProfile} from '../../api/profile'
 
 const EditProfileModal = (props) => {
-    const { user, msgAlert, show, handleClose, updateProfile, triggerRefresh } = props 
+    const { user, msgAlert, show, updateProfile, handleClose, triggerRefresh } = props 
     const [profile, setProfile] = useState( 
         props.profile
     )

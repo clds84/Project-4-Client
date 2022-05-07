@@ -7,6 +7,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+
 const ChangePassword = (props) => {
 	// constructor(props) {
 	// 	super(props)
@@ -49,8 +50,6 @@ const ChangePassword = (props) => {
 				})
 			})
 	}
-
-
 
     return (
         <div className='row'>

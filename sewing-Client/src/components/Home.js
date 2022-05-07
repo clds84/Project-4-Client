@@ -1,8 +1,6 @@
 import React from 'react'
 // import '../../src/stylingTest.scss'
-
 import needleImage from '../images/needle3.jpg'
-import buttonImage from '../components/Profile/buttons.jpg'
 
 
 

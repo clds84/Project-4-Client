@@ -54,7 +54,10 @@ const SignIn = (props) => {
 	}
 
     return (
-        <div className='row' style={{backgroundImage: `url(${needle})`, backgroundSize: 'cover', height:'1000px'}}>
+        <div className='row' 
+             style={{backgroundImage: `url(${needle})`, 
+                     backgroundSize: 'cover', 
+                     height:'1000px'}}>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign In</h3>
                 <Form onSubmit={onSignIn}>

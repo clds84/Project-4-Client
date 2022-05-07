@@ -30,7 +30,7 @@ const ShowProfile = (props) => {
                 message: 'shit',
                 variant: 'danger',
         }))
-    }, [user, updated])
+    }, [updated])
     
     const deleteProfile = () => {
         console.log('this is user', user)
@@ -61,94 +61,73 @@ const ShowProfile = (props) => {
     }
 
     if (profile) {
-            return (    
-                <>
-                <div style={{padding: '100px', backgroundImage: `url(${buttons})`, backgroundSize: 'cover'}}>
-                <div style={{display:'flex', justifyContent:'center'}}>
-                    <Card border="dark" style={{width: '40rem', borderRadius: '20px'}} className="m-2 shadow p-3 mb-5 bg-body rounded">
-                 <Sample>
-                        <Card.Header style={{
-                            textAlign: 'center',
-                            fontSize: '28px',
-                            background: 'white'
-                        }}          
-                        >
-                            <strong>Profile</strong>
-                        </Card.Header>
-                      
-                        <Card.Body style={{
-                            textAlign: 'center'
-                        }}>
-                            {/* <Card.Title>Card Title</Card.Title> */}
-                            <Card.Text>
-                                 <strong>Name: </strong> <br /><br />  {profile.name}
-                            </Card.Text>
-                                <hr></hr>
-                            <Card.Text>
-                                <strong>About: </strong> <br /><br /> {profile.about}
-                            </Card.Text>
-                                <hr></hr>
-                            <Card.Text>
-                                 <strong>Sewing Background:</strong> <br /><br />  {profile.sewingBackground}
-                            </Card.Text>
-                                 <hr></hr>
-                            <Card.Text>
-                                <strong>Machine Type:</strong> <br /><br />  {profile.machineType}
-                            </Card.Text>
-                                <hr></hr>
-                            <Card.Text>
-                                <strong>Project Bucketlist:</strong> <br /><br />   {profile.projectBucketlist}
-                            </Card.Text>
-                                <hr></hr>
-                            <Card.Text>
-                               <strong>About:</strong> <br /><br />   {profile.about}
-                            </Card.Text>
-
-                        </Card.Body>
-                        <Card.Footer style={{
-                            textAlign: 'center',
-                            background: 'white'
-                        }}>
-                    <Button onClick={() => setModalOpen(true)} className="m-2">
-                         Edit Profile
-                    </Button>
-                    <Button onClick ={() => deleteProfile()} className="m-2">
-                         Delete Profile
-                    </Button>
-                    <Button onClick={() => navigate('/projects')} className="m-2">  
-                            My Projects
-                    </Button>
-                    <Button onClick={() => navigate('/projects')} className="m-2">  
-                            My Comments
-                    </Button>
-                    
-                            
-                            
-                        </Card.Footer>
-                        </Sample>
-                    </Card>
+        return (    
+            <>
+                <div style={{padding: '100px', 
+                                backgroundImage: `url(${buttons})`, 
+                                backgroundSize: 'cover'
+                            }}>
+                    <div style={{display:'flex', 
+                                justifyContent:'center'
+                                }}>
+                        <Card border="dark" 
+                            className="m-2 shadow p-3 mb-5 bg-body rounded"
+                            style={{width: '40rem', 
+                                    borderRadius: '20px'
+                                    }}>
+                            <Card.Header style={{textAlign: 'center',
+                                                fontSize: '28px',
+                                                background: 'white'
+                                                }}>
+                                <strong>Profile</strong>
+                            </Card.Header>
+                            <Card.Body style={{textAlign: 'center'}}>
+                                <Card.Text>
+                                    <strong>Name: </strong> <br /><br />  {profile.name}                                
+                                    <hr></hr>                           
+                                    <strong>About: </strong> <br /><br /> {profile.about}                           
+                                    <hr></hr>                           
+                                    <strong>Sewing Background:</strong> <br /><br />  {profile.sewingBackground}                            
+                                    <hr></hr>                           
+                                    <strong>Machine Type:</strong> <br /><br />  {profile.machineType}                            
+                                    <hr></hr>                            
+                                    <strong>Project Bucketlist:</strong> <br /><br />   {profile.projectBucketlist}
+                                    <hr></hr>                               
+                                    <strong>About:</strong> <br /><br />   {profile.about}
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer style={{
+                                textAlign: 'center',
+                                background: 'white'
+                                }}>
+                                <Button onClick={() => setModalOpen(true)} className="m-2">
+                                    Edit Profile
+                                </Button>
+                                <Button onClick ={() => deleteProfile()} className="m-2">
+                                    Delete Profile
+                                </Button>
+                                <Button onClick={() => navigate('/projects')} className="m-2">  
+                                        My Projects
+                                </Button>
+                                <Button onClick={() => navigate('/projects')} className="m-2">  
+                                        My Comments
+                                </Button>
+                            </Card.Footer>
+                        </Card>
                     </div>
-                    <div style={{textAlign:'center'}}>
-                    
-                
-                    </div>
-                    </div>
-                   
-                    
-                    <EditProfileModal
-                        profile={profile}
-                        show={modalOpen}
-                        user={user}
-                        triggerRefresh={() => setUpdated(prev => !prev)}
-                        updateProfile={updateProfile}
-                        handleClose = {() => setModalOpen(false)}
-                        msgAlert={msgAlert}
-                    />
-                </>
-            )
-       // })
+                </div>
+                <EditProfileModal
+                    profile={profile}
+                    show={modalOpen}
+                    user={user}
+                    triggerRefresh={() => setUpdated(prev => !prev)}
+                    updateProfile={updateProfile}
+                    handleClose = {() => setModalOpen(false)}
+                    msgAlert={msgAlert}
+                />
+            </>
+        )
     }
-
 }
 
 export default ShowProfile

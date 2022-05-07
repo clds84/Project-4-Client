@@ -12,7 +12,6 @@ export const getAllProjects = (user) => {
         data: { userId: user._id }
     })
 }
-
 export const getProject = (projectId) => {
     console.log('this is projectId', projectId)
     return axios(`${apiUrl}/projects/${projectId}`)
@@ -24,7 +23,7 @@ export const createProject = (user, newProject) => {
     return axios({
         url: `${apiUrl}/projects`,
         method: 'POST',
-        header: {
+        headers: {
             Authorization:`Token token=${user.token}`
         },
         data: { project: {
@@ -44,7 +43,7 @@ export const updateProject = (user, updatedProject) => {
     return axios({
         url: `${apiUrl}/projects/${updatedProject._id}`,
         method: 'PATCH',
-        header: {
+        headers: {
             Authorization:`Token token=${user.token}`
         },
         data: { project: {
@@ -57,7 +56,6 @@ export const updateProject = (user, updatedProject) => {
         }}
     })
 }
-
 //DELETE
 export const removeProject = (user,projectId) => {
     console.log('user', user)
@@ -65,7 +63,7 @@ export const removeProject = (user,projectId) => {
     return axios({
         url: `${apiUrl}/projects/${projectId}`,
         method: 'DELETE',
-        header: {
+        headers: {
             Authorization:`Token token=${user.token}`
         },
     })

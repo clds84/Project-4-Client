@@ -56,13 +56,16 @@ const CreateProject = (props) => {
     }
 
     return (
-        <div style={{background: `url(${modalpic})`, backgroundSize:'cover',height:'1000px'}}>
+        <div style={{background: `url(${modalpic})`,
+                     backgroundSize:'cover',
+                     height:'1000px'
+                    }}>
 
-        <ProjectForm
-            project={project}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            heading="Add Project"
+            <ProjectForm
+                project={project}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                heading="Add Project"
             />
         </div>
     )

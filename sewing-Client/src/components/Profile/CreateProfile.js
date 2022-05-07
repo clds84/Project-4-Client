@@ -4,6 +4,7 @@ import { createProfile} from '../../api/profile'
 //import { createProfileSuccess, createProfileFailure }from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import ProfileForm from '../shared/ProfileForm'
+import shears from '../../images/measuringTape.jpg'
 
 //this function renders a form and calls function
 const CreateProfile = (props) => {
@@ -56,12 +57,16 @@ const CreateProfile = (props) => {
     }
 
     return (
-        <ProfileForm
-            profile={profile}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            heading="Add Profile"
-        />
+        <div style={{background: `url(${shears})`, 
+             backgroundSize:'cover', 
+             height:'1000px'}}>
+            <ProfileForm
+                profile={profile}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                heading="Add Profile"
+            />
+        </div>
     )
 }
 export default CreateProfile

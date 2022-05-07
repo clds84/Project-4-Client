@@ -57,8 +57,7 @@ const ProjectsIndex = (props) => {
         
         projectsCards = projects.map(project => (
            
-           
-            <Card key={project.id} style={{width: '30rem', textAlign:'center'}} className="m-2 shadow p-3 mb-5 bg-body rounded" >
+           <Card key={project.id} style={{width: '30rem', textAlign:'center'}} className="m-2 shadow p-3 mb-5 bg-body rounded" >
                 <Card.Header style={{background: 'white', fontSize: '28px'}}>
                     <strong>{project.type}</strong> <br /> <hr></hr><strong>{project.pattern}</strong> 
                 </Card.Header>
@@ -78,18 +77,26 @@ const ProjectsIndex = (props) => {
     
 	return (
 		<>
-            <div style={{padding: '100px', backgroundImage: `url(${fabric})`, backgroundSize:'cover', width: '100%', height: '1000px'}}> 
-                 <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
+            <div style={{padding: '100px', 
+                         backgroundImage: `url(${fabric})`, 
+                         backgroundSize:'cover',
+                         width: '100%', 
+                         height: '1000px'
+                        }}> 
+                <div style={{display: 'flex', 
+                             justifyContent: 'space-around', 
+                             flexWrap: 'wrap'
+                            }}>
                      {projectsCards}
                 </div>
-                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <div style={{display: 'flex', 
+                             justifyContent: 'center'
+                            }}>
                     <Button  onClick={() => navigate('/addproject')} className="m-2">  
                         Add Project
                     </Button>
-                 </div>
+                </div>
             </div> 
-            
-                
         </>
     )
 }

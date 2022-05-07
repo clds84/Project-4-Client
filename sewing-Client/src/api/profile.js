@@ -44,11 +44,12 @@ export const updateProfile = (user, updatedProfile) => {
         },
         data: { profile: {
             owner: user._id,
-            type: updatedProfile.type,
-            pattern: updatedProfile.pattern,
-            fabric: updatedProfile.fabric,
-            interfacing: updatedProfile.interfacing,
-            notions: updatedProfile.notions,
+            name: updatedProfile.name,
+            about: updatedProfile.about,
+            sewingBackground: updatedProfile.sewingBackground,
+            machineType: updatedProfile.machineType,
+            prefferedNotions: updatedProfile.prefferedNotions,
+            projectBucketlist: updatedProfile.projectBucketlist
         }}
     })
 }
